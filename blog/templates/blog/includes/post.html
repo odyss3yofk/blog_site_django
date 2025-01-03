@@ -1,16 +1,16 @@
 {% load static %}
-<li>
-    <article class="post">
-      <a href="post-detail-page"  slug="the-mountains">
-        <img src="{% static "blog\images\mountains.jpg" %}" alt="Mountain" />
-        <div class="post__content">
-          <h3>1040 days in the hills of Sikkim, for commit
 
-          </h3>
-          <p>
-            This blog is about my 1040 days in the hills of Sikkim and How it changed my life.
-          </p>
-        </div>
-      </a>
-    </article>
-  </li>
+<li>
+  <article class="post">
+    <a href="{% url "post-detail-page" post.slug %}">
+      <img src="{% static "blog/images/"|add:post.image %}" alt="{{post.title}}"
+      />
+      <div class="post__content">
+        <h3>{{post.title}}</h3>
+        <p>
+          {{post.excerpt}}
+        </p>
+      </div>
+    </a>
+  </article>
+</li>

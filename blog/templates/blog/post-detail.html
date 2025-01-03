@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} 
+This Post
+{% endblock %} 
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "blog/post-details.css" %}" />
+  <link rel="stylesheet" href="{% static "blog/index.css" %}" />
+{% endblock %}
+
+{% block content %}
+
+<section id="summary">
+    <h2>1040 days in Sikkim</h2>
+    <article>
+        <img src="{% static "blog/images/mountains.jpg" %}" alt="Post-Title">
+        <address>By Kuldeep</address>
+        <div>
+           Last updated on <time>January 3rd</time>
+        </div>
+    </article>
+</section>
+
+<main>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui iste ratione cumque consequuntur, nesciunt repellat molestias saepe illum neque officiis rem tempora omnis maxime provident soluta perferendis vero natus inventore?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore labore, accusantium quo voluptas sapiente rerum placeat, optio ipsam eos nisi sunt. Dolores omnis dolorum illum neque harum quibusdam expedita autem!</p>
+</main>
+
+{% endblock  %}
