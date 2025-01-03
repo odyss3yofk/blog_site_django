@@ -6,7 +6,7 @@ all_posts = [
     {
         "slug": "1040-days-in-sikkim",
         "image": "mountains.jpg",
-        "author": "kuldeep",
+        "author": "Kuldeep",
         "date": date(2024, 11, 3),
         "title": "1040 days in Sikkim",
         "excerpt": "How 1040 days in sikkim changed my life",
@@ -21,7 +21,7 @@ all_posts = [
     {
         "slug": "programming-is-fun",
         "image": "coding.png",
-        "author": "Maximilian",
+        "author": "Kuldeep",
         "date": date(2024, 12, 10),
         "title": "Programming Is Great!",
         "excerpt": "Did you ever spend hours searching that one error in your code? Yep - that's what happened to me yesterday...",
@@ -42,7 +42,7 @@ all_posts = [
     {
         "slug": "into-the-woods",
         "image": "woods.jpg",
-        "author": "Maximilian",
+        "author": "Kuldeep",
         "date": date(2025, 1, 3),
         "title": "Nature At Its Best",
         "excerpt": "Nature is amazing! The amount of inspiration I get when walking in nature is incredible!",
@@ -76,8 +76,13 @@ def starting_page(request):
 
 
 def posts(request):
-    return render(request, "blog/all-posts.html")
+    return render(request, "blog/all-posts.html", {
+        "all_posts": all_posts
+    })
 
 
 def post_detail(request, slug):
-    return render(request, "blog/post-detail.html")
+    identified_post = next(post for post in all_posts if post['slug'] == slug)
+    return render(request, "blog/post-detail.html", {
+        "post": identified_post
+    })
